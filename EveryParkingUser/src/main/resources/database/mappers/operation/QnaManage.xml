@@ -46,9 +46,9 @@
 			, #{MOD_SEQ}
 			, #{MOD_DATE}
 			, #{NOTE}
-			, 'Y'
-			, 0
-			, 'N'
+			, #{USE_YN}
+			, #{QNA_COUNT}
+			, #{QNA_ANS}
 			, #{FILE_SEQ}
 		)
 	</insert>

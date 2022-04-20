@@ -20,6 +20,7 @@
 		AND USE_YN = 'Y'
 	</sql>
 	
+	<!-- Qna 목록 불러오기 -->
 	<select id="selectListQna" parameterType="hashMap" resultType="hashMap">
 			select pq.* , ps.SUB_NAME
 			from p_qna pq , p_subcode ps
@@ -34,12 +35,14 @@
         </if>
 	</select>
 	
+	<!-- Qna게시물 등록 갯수 가져오기 -->
 	<select id="selectListCountQna" parameterType="hashMap" resultType="int">
 		SELECT COUNT(*) FROM(
 		<include refid="qnaManageSQL"></include>
 		)z
 	</select>
 	
+	<!-- Qna 정보 가져오기 -->
 	<select id="getQna" parameterType="int" resultType="hashMap">
 		SELECT pq.* , pu.USER_NAME
 		FROM p_qna pq , p_user pu
@@ -48,6 +51,7 @@
 		order by pq.QNA_SEQ asc
 	</select>
 
+	<!-- Qna 삭제 -->
 	<update id="deleteQna" parameterType="INT">
 		UPDATE p_qna SET
 			USE_YN = 'N'
@@ -56,12 +60,14 @@
 		WHERE QNA_SEQ = #{QNA_SEQ}
 	</update>
 	
+	<!-- Qna 조회수 -->
 	<update id="qnaReadCount">
 		UPDATE p_qna SET
 			QNA_COUNT = QNA_COUNT+1
 		WHERE QNA_SEQ = #{QNA_SEQ}	
 	</update>
 	
+	<!-- Qna 댓글  -->
 	<insert id="insertComment" parameterType="hashMap">
 		<selectKey keyProperty="QNAC_SEQ,GQNA_NUM" keyColumn="QNAC_SEQ,GQNA_NUM" resultType="map" order="BEFORE">
 			SELECT MAX(QNAC_SEQ), MAX(QNAC_SEQ) + 1 as GQNA_NUM from p_qnacomment
@@ -87,7 +93,9 @@
 		, #{GQNA_NUM}
 		, 0
 		)
-	</insert>	
+	</insert>
+	
+	<!-- Qna 답글 -->
 	<insert id="insertReply" parameterType="hashMap">
 		<selectKey keyProperty="QNAC_SEQ,GQNA_SEQ" keyColumn="QNAC_SEQ,GQNA_SEQ" resultType="map" order="BEFORE">
 			SELECT MAX(QNAC_SEQ),MAX(GQNA_SEQ) + 1 as GQNA_SEQ from p_qnacomment	
@@ -117,7 +125,7 @@
 		)
 	</insert>
 	
-	
+	<!-- 댓글 가져오기 -->
 	<select id="getCommentList" parameterType="int" resultType="hashMap">
 		SELECT pqc.* , pu.USER_NAME
 			FROM p_qnacomment pqc , p_user pu 

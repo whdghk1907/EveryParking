@@ -66,8 +66,8 @@ function updateData() {
 			}
 		})
 	})
-
 }
+
 	function deleteQna(qnaNum){
 		cmm.confirm('삭제', '삭제하시겠습니까', null, function(){
 			ajaxCall("/operation/QNA/deleteQna?QNA_SEQ=" + qnaNum, null, function(data){
