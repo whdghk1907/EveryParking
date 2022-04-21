@@ -53,6 +53,7 @@
 		)
 	</insert>
 	
+	<!-- Qna 수정  -->
 	<update id="updateQna" parameterType="hashMap">
 		UPDATE p_qna SET
 			QNA_TITLE = #{QNA_TITLE}
