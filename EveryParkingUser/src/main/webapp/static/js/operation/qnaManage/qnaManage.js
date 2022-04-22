@@ -82,7 +82,7 @@ function updateData() {
 }
 
 
-// qna 출력	
+// Grid를 이용한 qna 출력	
 	
 let qnaManage = {
 	    gridOption:{},
