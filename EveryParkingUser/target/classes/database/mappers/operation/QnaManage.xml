@@ -64,6 +64,7 @@
 		WHERE QNA_SEQ = #{QNA_SEQ}
 	</update>
 	
+	<!-- Qna 삭제 -->
 	<update id="deleteQna" parameterType="INT">
 		UPDATE p_qna SET
 			USE_YN = 'N'
@@ -72,7 +73,7 @@
 		WHERE QNA_SEQ = #{QNA_SEQ}
 	</update>
 	
-	
+	<!-- 게시글 목록, User데이터 조인해서 가져오기 -->
 	<select id="selectListQna" parameterType="hashMap" resultType="hashMap">
 			select pq.* , ps.SUB_NAME
 			from p_qna pq , p_subcode ps
@@ -87,12 +88,14 @@
         </if>
 	</select>
 	
+	<!--paging용 개시글 갯수 정보-->
 	<select id="selectListCountQna" parameterType="hashMap" resultType="int">
 		SELECT COUNT(*) FROM(
 		<include refid="qnaManageSQL"></include>
 		)z
 	</select>
 	
+	<!-- 게시글 정보 -->
 	<select id="getQna" parameterType="int" resultType="hashMap">
 		SELECT pq.* , pu.USER_NAME
 		FROM p_qna pq , p_user pu
@@ -101,6 +104,7 @@
 		order by pq.QNA_SEQ ASC 		
 	</select>
 		
+	<!-- 조회수 증가 쿼리 -->
 	<update id="qnaReadCount">
 		UPDATE p_qna SET
 			QNA_COUNT = QNA_COUNT+1
