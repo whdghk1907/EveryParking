@@ -199,6 +199,7 @@
 		WHERE QNAC_SEQ = #{QNAC_SEQ}
 	</update>
 	
+	<!-- 이전글, 다음글 -->
 	<select id="getNextPrev" parameterType="hashMap" resultType="hashMap">
 	<![CDATA[
 		SELECT

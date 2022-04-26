@@ -151,8 +151,8 @@ let qnaManage = {
 			return false;
 		}
 		
-		if (comment.length >= 40){
 			cmm.alert("댓글은 한글 20자, 영어40자 까지 가능합니다.(특수기호 포함)");
+			if (comment.length >= 40){
 			event.preventDefault();
 			return false;
 		}

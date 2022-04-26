@@ -29,13 +29,11 @@ public class QnaServiceImpl implements QnaService{
 	
 	@Override
 	public List<HashMap<String, Object>> selectListQna(HashMap<String, Object> params) throws Exception {
-		// TODO Auto-generated method stub
 		return qnadao.selectListQna(params);
 	}
 
 	@Override
 	public int selectListCountQna(HashMap<String, Object> params) throws Exception {
-		// TODO Auto-generated method stub
 		return qnadao.selectListCountQna(params);
 	}
 

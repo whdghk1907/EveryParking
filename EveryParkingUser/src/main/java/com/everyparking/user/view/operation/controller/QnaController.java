@@ -30,9 +30,6 @@ public class QnaController {
 		HashMap<String, Object> map = qnaService.getQna(QNA_SEQ);
 		model.addAttribute("qna",map);
 		
-		List<HashMap<String, Object>> list = qnaService.getCommentList(QNA_SEQ);
-		model.addAttribute("commentList", list);
-		
 		HashMap<String, Object> qnaMove = qnaService.getNextPrev(QNA_SEQ);
 		model.addAttribute("qnaMove",qnaMove);
 		
