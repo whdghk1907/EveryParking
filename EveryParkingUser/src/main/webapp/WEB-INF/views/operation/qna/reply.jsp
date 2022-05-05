@@ -81,7 +81,7 @@
 	                </c:if>
                     </div>
                 </div>           
-				<div class="row mt-3 mb-4 mx-0" style="border-bottom: 0.2rem solid #3E4AB8; height: 3rem;">
+1				<div class="row mt-3 mb-4 mx-0" style="border-bottom: 0.2rem solid #3E4AB8; height: 3rem;">
                     <div class="col align-self-center">
                         <span class="mainContentSubSubNg fs-5">답변 </span>
                     </div>
